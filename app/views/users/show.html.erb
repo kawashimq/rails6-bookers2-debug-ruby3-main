@@ -9,6 +9,19 @@
     <div class='col-md-8 offset-md-1'>
       <h2>Books</h2>
       <%= render 'books/index',books: @books %>
+      <% if @bookers.favorited_by?(current_user) %>
+    <p>
+      <%= link_to post_image_favorites_path(@bookers), method: :delete do %>
+        ♥<%= @bookers.favorites.count %> いいね
+      <% end %>
+    </p>
+    <% else %>
+    <p>
+      <%= link_to post_image_favorites_path(@bookers), method: :post do %>
+        ♡<%= @bookers.favorites.count %> いいね
+      <% end %>
+    </p>
+  <% end %>
     </div>
   </div>
 </div>
