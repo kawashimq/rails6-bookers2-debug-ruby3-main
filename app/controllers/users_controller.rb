@@ -6,7 +6,6 @@ class UsersController < ApplicationController
     @user = User.find(params[:id])
     @books = @user.books
     @book = Book.new
-    @bookers = Book.find(params[:id]) #いいね機能のため追記
   end
 
   def index
